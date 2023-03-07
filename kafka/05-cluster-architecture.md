@@ -26,5 +26,4 @@ cluster. The controller is not a Master node, it is usual node elected to have
 for responsibility.
 The controller is the first node that started in the cluster.
 
-
-
+# 
