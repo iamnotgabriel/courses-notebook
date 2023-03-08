@@ -53,3 +53,7 @@ immediately sent. Message is put in a sized buffer to offer network
 optimization and asynchronous behavior. The message is sent by a 
 underlying I/O Thread. If the buffer is full the send call will block
 until there is a free space
+
+## I/O Thread
+if i/o thread fails to insert the message in the broker, it retries 
+for a x amount of time(customizable). If not it returns the record metadata.
