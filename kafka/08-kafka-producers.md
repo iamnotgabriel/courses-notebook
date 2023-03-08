@@ -39,3 +39,11 @@ the same key. The hash also takes the number of partitions into account adding
 partitions to topic would change the partition of a given key.
 The Round robin is used when the message is null (to equally distribute 
 messages) in the partitions. 
+
+### Timestamp
+Timestamp of the message can be set with two strategies:
+0. Create Time: producer sets the timestamp (default)
+1. Append Log Time: broker overwrites the producer timestamp with another value
+to change the strategy use `message.timestamp.type` on the broker server
+(0 or 1) .
+
