@@ -47,3 +47,9 @@ Timestamp of the message can be set with two strategies:
 to change the strategy use `message.timestamp.type` on the broker server
 (0 or 1) .
 
+### Message Buffer
+When calling the method send of the producer api, the message is not 
+immediately sent. Message is put in a sized buffer to offer network 
+optimization and asynchronous behavior. The message is sent by a 
+underlying I/O Thread. If the buffer is full the send call will block
+until there is a free space
