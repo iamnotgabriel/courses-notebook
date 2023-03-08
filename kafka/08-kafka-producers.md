@@ -22,3 +22,8 @@ Contains all data of the message:
 4. Timestamp: when the message was sent
 
 ### ProducerSerializer
+Convert the value of the key and value to array of bytes.
+Every message follows this path before it is send to the broker:
+1. Serialization
+2. Partitioning
+3. Stored in a buffer
