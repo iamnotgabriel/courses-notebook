@@ -18,8 +18,9 @@ Always close kafka producer connection after sending messages!
 Contains all data of the message:
 1. Topic*: target topic of the message
 2. MessageValue*: content of the message
-3. MessageKey: key of the value pair of the message (consider it mandatory)
-4. Timestamp: when the message was sent
+3. Partition: Which partition the message will be sent
+4. MessageKey: key of the value pair of the message (consider it mandatory)
+5. Timestamp: when the message was sent
 
 ### ProducerSerializer
 Convert the value of the key and value to array of bytes.
