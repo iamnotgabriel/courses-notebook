@@ -28,3 +28,14 @@ Every message follows this path before it is send to the broker:
 1. Serialization
 2. Partitioning
 3. Stored in a buffer
+
+## ProducerPartitioning
+The producer can choose which partition can be used, and can set a custom
+strategy to partition messages. This is not very used, most often the Default
+Partitioner is good enough. The Default Partitioner follows one of the two
+strategies: Round robin, or Hash Key partitioning
+The Hash strategy can be used to always messages to the same partition using
+the same key. The hash also takes the number of partitions into account adding
+partitions to topic would change the partition of a given key.
+The Round robin is used when the message is null (to equally distribute 
+messages) in the partitions. 
