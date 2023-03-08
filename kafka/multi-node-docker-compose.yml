@@ -5,7 +5,8 @@ services:
     image: confluentinc/cp-zookeeper:7.3.0
     container_name: zookeeper1
     networks:
-      - kafka-network
+      kafka-network:
+        ipv4_address: 172.25.0.10
     ports:
       - "2181"
     environment:
@@ -14,13 +15,15 @@ services:
 
   broker-1:
     image: confluentinc/cp-kafka:7.3.0
-    container_name: node1-broker
+    container_name: broker-1
     networks:
-      - kafka-network
+      kafka-network:
+        ipv4_address: 172.25.0.11
     ports:
       # To learn about configuring Kafka for access across networks see
       # https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/
       - "19092:19092"
+      - "9092:9092"
     depends_on:
       - zookeeper1
     volumes:
@@ -29,20 +32,21 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper1:2181"
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker-1:9092,PLAINTEXT_HOST://broker:19092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker-1:9092,PLAINTEXT_HOST://broker-1:19092
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
   broker-2:
     image: confluentinc/cp-kafka:7.3.0
-    container_name: node2-broker
+    container_name: broker-2
     ports:
       # To learn about configuring Kafka for access across networks see
       # https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/
       - "29092:29092"
     networks:
-      - kafka-network
+      kafka-network:
+        ipv4_address: 172.25.0.12
     depends_on:
       - zookeeper1
     volumes:
@@ -51,14 +55,14 @@ services:
       KAFKA_BROKER_ID: 2
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper1:2181"
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker-2:9092,PLAINTEXT_INTERNAL://broker:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker-2:9092,PLAINTEXT_INTERNAL://broker-2:29092
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
   broker-3:
     image: confluentinc/cp-kafka:7.3.0
-    container_name: node3-broker
+    container_name: broker-3
     ports:
       # To learn about configuring Kafka for access across networks see
       # https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/
@@ -66,14 +70,15 @@ services:
     depends_on:
       - zookeeper1
     networks:
-      - kafka-network
+      kafka-network:
+        ipv4_address: 172.25.0.13
     volumes:
       - ./data:/data
     environment:
       KAFKA_BROKER_ID: 3
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper1:2181"
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker-3:9092,PLAINTEXT_INTERNAL://broker:39092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker-3:9092,PLAINTEXT_INTERNAL://broker-3:39092
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
@@ -82,3 +87,8 @@ services:
 networks:
   kafka-network:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
