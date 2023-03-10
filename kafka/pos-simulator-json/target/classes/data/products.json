@@ -1,0 +1,56 @@
+[
+  {
+    "ItemCode": 203,
+    "ItemDescription": "Bunk bed",
+    "ItemPrice": "1686",
+    "ItemQty": 0
+  },
+  {
+    "ItemCode": 208,
+    "ItemDescription": "Canopy bed",
+    "ItemPrice": "508",
+    "ItemQty": 0
+  },
+  {
+    "ItemCode": 213,
+    "ItemDescription": "Infant bed",
+    "ItemPrice": "1755",
+    "ItemQty": 0
+  },
+  {
+    "ItemCode": 218,
+    "ItemDescription": "Sofa bed",
+    "ItemPrice": "895",
+    "ItemQty": 0
+  },
+  {
+    "ItemCode": 223,
+    "ItemDescription": "Hammock",
+    "ItemPrice": "1210",
+    "ItemQty": 0
+  },
+  {
+    "ItemCode": 228,
+    "ItemDescription": "Divan",
+    "ItemPrice": "1083",
+    "ItemQty": 0
+  },
+  {
+    "ItemCode": 233,
+    "ItemDescription": "Coffee table",
+    "ItemPrice": "1055",
+    "ItemQty": 0
+  },
+  {
+    "ItemCode": 238,
+    "ItemDescription": "Dining table",
+    "ItemPrice": "1582",
+    "ItemQty": 0
+  },
+  {
+    "ItemCode": 243,
+    "ItemDescription": "Folding table",
+    "ItemPrice": "738",
+    "ItemQty": 0
+  }
+]

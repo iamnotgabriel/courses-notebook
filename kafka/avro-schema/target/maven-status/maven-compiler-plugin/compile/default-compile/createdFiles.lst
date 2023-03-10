@@ -1,0 +1,7 @@
+org/example/Main.class
+org/example/DeliveryAddress.class
+org/example/LineItem.class
+org/example/LineItem$Builder.class
+org/example/PosInvoice.class
+org/example/PosInvoice$Builder.class
+org/example/DeliveryAddress$Builder.class
