@@ -9,9 +9,7 @@ import java.util.Map;
 public class JsonSerializer<T> implements Serializer<T> {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public JsonSerializer() {
-
-    }
+    public JsonSerializer() {}
 
     @Override
     public void configure(Map<String, ?> config, boolean isKey) {

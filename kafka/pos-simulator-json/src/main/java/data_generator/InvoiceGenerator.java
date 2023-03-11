@@ -25,8 +25,8 @@ public class InvoiceGenerator {
         return ourInstance;
     }
 
-    private InvoiceGenerator() {
-        String DATAFILE = "src/main/resources/data/Invoice.json";
+    public InvoiceGenerator() {
+        String DATAFILE = "src/main/resources/data/invoices.json";
         ObjectMapper mapper;
         invoiceIndex = new Random();
         invoiceNumber = new Random();

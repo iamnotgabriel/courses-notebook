@@ -21,7 +21,7 @@ class AddressGenerator {
     }
 
     private AddressGenerator() {
-        final String DATAFILE = "src/main/resources/data/address.json";
+        final String DATAFILE = "src/main/resources/data/addresses.json";
         final ObjectMapper mapper;
         random = new Random();
         mapper = new ObjectMapper();
