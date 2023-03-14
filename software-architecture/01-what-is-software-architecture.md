@@ -17,8 +17,8 @@ structure and clear meaning reducing complexity.
 # What is complexity?
 
 Complexity makes it hard to understand and modify the system. To reduce 
-complexity we need a architecture that makes modification and
-comprehension easier.
+complexity we need a architecture that makes modification and comprehension
+easier.
 
 # The SoC Principle
 
