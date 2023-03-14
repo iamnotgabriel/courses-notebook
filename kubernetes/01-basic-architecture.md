@@ -25,4 +25,3 @@ Used to deploy and manage application on a kubernetes cluster.
 1. `kubectl run hello--minikube` : deploys application to the cluster
 2. `kubectl cluster-info`: information about the node 
 3. `kubectl get nodes`: list all nodes of the cluster
-
