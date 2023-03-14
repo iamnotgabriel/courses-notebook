@@ -5,6 +5,7 @@ To run k8 locally you will need:
 2. minikube : to install everything on the slave node
 
 # Steps 
+
 ```
 $ minikube start
 $ kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0
