@@ -7,7 +7,7 @@ How to make yaml files for kubernetes. All k8 file contains in the top level:
 4. spec : container, image ... (changes according to the object)
    
 ```
-apiVersion: 1
+apiVersion: v1
 kind: Pod
 metadata:
     name: myapp-pod
