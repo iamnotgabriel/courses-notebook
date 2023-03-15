@@ -9,9 +9,9 @@ additional load.
 
 ## Replication Controller
 
-Create : `kubectl create -f manifests/rc-example.ym`
-List : `kubectl get replicationcontrollers`
-Delete : `kubectl delete replicationcontroller myapp-rc`
+1. Create : `kubectl create -f manifests/rc-example.ym`
+2. List : `kubectl get replicationcontrollers`
+3. Delete : `kubectl delete replicationcontroller myapp-rc`
 ```
 apiVersion: v1
 kind: ReplicationController
@@ -41,11 +41,11 @@ Controller also has this field, but it assumes to be the labels of the pod
 template. Replica Set can replicate other existing pods not declared in the 
 template.
 
-Create : `kubectl create -f manifests/rs-example.yml`
-List : `kubectl get replicasets`
-Delete : `kubectl delete replicasets myapp-rs` (and related pods)
-Replace : `kubectl replace replicaset -f manifests/rs-example.yaml`
-Scale : `kubectl scale  --replicas=6 -f replicaset-definition.yml` r
+ 1. Create : `kubectl create -f manifests/rs-example.yml`
+ 2. List : `kubectl get replicasets`
+ 3. Delete : `kubectl delete replicasets myapp-rs` (and related pods)
+ 4. Replace : `kubectl replace replicaset -f manifests/rs-example.yaml`
+ 5. Scale : `kubectl scale  --replicas=6 -f replicaset-definition.yml` r
         `kubectl scale --replicas=6 replicaset myapp-rs` (will not update file)
 
 ```
@@ -80,5 +80,3 @@ does that with a selector and matchLabels value. It will monitor pods with this
 label and replicate when necessary.
 If a pod with labels that match an existing selector of a replica set, the replica
 set will terminate it.
-
-##

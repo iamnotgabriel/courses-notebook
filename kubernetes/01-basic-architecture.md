@@ -8,12 +8,12 @@ Terms used in kubernetes
 
 # What is being installed with k8
 
-1. API server : front-end for k8
-2. etcd : distributed key-value store with cluster data
-3. kubelet : agent monitors containers on a given node 
-4. Container runtime : software used to run containers
-5. Controller : Brain behind orchestration, when a node fails it distribute the work to other nodes
-6. Scheduler : distribute load across nodes, assign containers to nodes
+1. API server : front-end for k8    
+2. etcd : distributed key-value store with cluster data    
+3. kubelet : agent monitors containers on a given node    
+4. Container runtime : software used to run containers    
+5. Controller : Brain behind orchestration, when a node fails it distribute the work to other nodes    
+6. Scheduler : distribute load across nodes, assign containers to nodes    
 
 # Master vs. Worker Nodes
 

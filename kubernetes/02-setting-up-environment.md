@@ -1,8 +1,8 @@
 # Setup
 
-To run k8 locally you will need:
-1. VM : to use a slave node
-2. minikube : to install everything on the slave node
+To run k8 locally you will need:   
+1. VM : to use a slave node    
+2. minikube : to install everything on the slave node    
 
 # Steps 
 
