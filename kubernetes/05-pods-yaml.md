@@ -19,4 +19,4 @@ spec:
         - name: nginx-container
           image: nginx
 ```
-To run this file as a command, use `kubectl -f pod-definition.yml`
+To run this file as a command, use `kubectl create -f pod-definition.yml`
