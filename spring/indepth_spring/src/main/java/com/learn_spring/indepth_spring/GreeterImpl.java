@@ -7,11 +7,16 @@ import org.springframework.stereotype.Component;
 public class GreeterImpl {
 
     @Autowired
-    private Goodbye  portugueseGoodbye;
+    public final Goodbye  portugueseGoodbye;
 
 
-    public void  greet() {
-        System.out.println("Hi, you are awesome, " + portugueseGoodbye.say());
+    GreeterImpl(Goodbye portugueseGoodbye) {
+        this.portugueseGoodbye = portugueseGoodbye;
+    }
+
+
+    public String  greet() {
+        return "Hi, you are awesome, " + portugueseGoodbye.say();
     }
 
 }

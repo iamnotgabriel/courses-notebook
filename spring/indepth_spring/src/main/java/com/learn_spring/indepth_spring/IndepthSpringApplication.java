@@ -12,7 +12,7 @@ public class IndepthSpringApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(IndepthSpringApplication.class, args);
 		GreeterImpl greater = ctx.getBean(GreeterImpl.class);
-		greater.greet();
+		System.out.println(greater.greet());
 	}
 
 }
